@@ -1,0 +1,106 @@
+body {
+margin: 0;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(119.15deg, #43FF00 4.56%, #006D88 100%, rgba(47, 72, 88, 0) 100%, rgba(47, 72, 88, 0) 100%);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    width: 50%;
+    text-align: center;
+    line-height: 0.01em;
+
+}
+h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 5vh;
+    font-size: 13vh;
+    color:ghostwhite;
+}
+h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 5vh;
+    font-size: 5vh;
+    color:ghostwhite;
+}
+
+.login-container{
+    width: 50%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 40vh;
+
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    border-radius: 40px;
+}
+
+#login{
+    background: green;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 19px;
+
+    width: 50%;
+    border:none;
+    color:black;
+    margin: 1em;
+    line-height: 2.5em;
+}
+#non-registered-button
+{
+    background-color: transparent;
+    border: none;
+    color:blue;
+    text-decoration: underline;
+    
+}
+
+
+input
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid grey;
+    padding: 1em;
+    margin: 1em;
+    width: 70%;
+}
+
+@media only screen and (max-device-width:420px){
+    .container
+    {
+        width: 110vw;
+        height: 110vh;
+        flex-direction: column;
+    }
+    *{
+        font-size: 36px;
+    }
+    .login-container, .logo{
+        width: 100%;
+    }
+    form{
+        margin: auto;
+    }
+    h1{
+        font-size: 6em;
+    }
+    h2{
+        font-size: 2.3em;
+    }
+
+}
