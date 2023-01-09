@@ -20,14 +20,14 @@ margin: 0;
 h1{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 5vh;
+    font-weight: 3vh;
     font-size: 13vh;
     color:ghostwhite;
 }
 h2{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 5vh;
+    font-weight: 3vh;
     font-size: 5vh;
     color:ghostwhite;
 }
@@ -36,7 +36,7 @@ h2{
     width: 50%;
 }
 
-form{
+form.login{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,4 +103,132 @@ input
         font-size: 2.3em;
     }
 
+}
+
+.base-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+
+nav{
+    width: 20vw;
+    height: 100%;
+    background: transparent linear-gradient(119.15deg, #43FF00 4.56%, #006D88 100%, rgba(47, 72, 88, 0) 100%, rgba(47, 72, 88, 0) 100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+main{
+    width: 80vw;
+}
+
+
+nav > img{
+    width: 60%;
+    margin: 2em auto;
+}
+
+h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 4em;
+    color:ghostwhite;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+a{
+    text-decoration: none;
+    display: inline-block;
+    line-height: 2em;
+}
+
+li i{
+    font-size: 1.5em;
+}
+
+.button{
+    border: 1px solid black;
+    border-radius: 1em;
+    margin-left: 1em;
+    text-align: center;
+    letter-spacing: 0.72px;
+    color: black;
+    padding: 0.2rem;
+    width: 60%;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    list-style-type: none;
+    font:normal normal normal 20px/27px Segoe UI;
+    letter-spacing: 0.72px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    width: calc(100% - 40px);
+}
+
+li{
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+.fa,
+.fas {
+    width: 1em;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+    
+}
+
+.add-workout-routine{
+    background: green 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 1.5em;
+    letter-spacing: 0.1em;
+    text-align: center;
+    width: 20%;
+
+}
+
+.add-workout-routine>i {
+    padding: 1em 1em;
+}
+
+.search-bar{
+    width: 70%;
+}
+
+.search-bar>form>input{
+    background: whitesmoke 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: none;
+    border-radius: 1.5em;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0.72px;
+    color: gray;
+    margin: 0;
+    box-sizing: border-box;
 }

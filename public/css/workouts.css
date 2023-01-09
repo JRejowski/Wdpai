@@ -1,0 +1,35 @@
+section
+{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 2em;
+    padding: 2em;
+    overflow: auto;
+}
+
+.workouts>div>img{
+    height: 99%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1em 1em 0 0;
+}
+.workouts>div>h4{
+    height: 1%;
+    width: 100%;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.workouts>div{
+    border: 1px solid rgb(216, 210, 210);
+    border-radius: 1em 1em 1em 1em;
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
