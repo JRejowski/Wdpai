@@ -11,10 +11,19 @@
             <h2>Become a beast!</h2>
         </div>
         <div class="login-container">
-            <form class="login">
+            <form class="login" action="login" method="POST">
+                <div class="messages">
+                    <?php if(isset($messages))
+                        {
+                            foreach ($messages as $message){
+                                echo $message;
+                            }
+                        }
+                        ?>
+                </div>
                 <input name="email" type="text" placeholder="Email@email.com">
                 <input name="password" type="password" placeholder="Password">
-                <button id="login">LOGIN</button>
+                <button id="login" type="submit">LOGIN</button>
                 <button id="non-registered-button">Not registered? Register now!</button>
             </form>
         </div>
