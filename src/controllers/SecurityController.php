@@ -8,10 +8,6 @@ class SecurityController extends AppController
     {
         $user = new \models\User('major@bombas.pl','haslo','Wojciech','Suchodolski');
 
-        if($this->isPost())
-        {
-            return $this->login('login');
-        }
 
         $email = $_POST["email"];
         $password = $_POST["password"];

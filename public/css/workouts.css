@@ -1,4 +1,4 @@
-section
+section.workouts
 {
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -34,6 +34,35 @@ section
     justify-content: space-between;
 }
 
+section.workouts-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.workouts-form > form{
+    display: flex;
+    flex-direction: column;
+}
+
+.workouts-form >h5
+{
+    font-size: 2em;
+    margin-left: 0.5em;
+}
+
+button{
+
+    background: green 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 19px;
+    text-align: center;
+    margin: 1em;
+    line-height: 2.5em;
+    width: 70%;
+}
+
+
 @media only screen and (max-device-width:420px){
     section{
         display: grid;
@@ -43,3 +72,4 @@ section
         overflow: auto;
     }
 }
+
