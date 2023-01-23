@@ -234,6 +234,24 @@ header{
     box-sizing: border-box;
 }
 
+.enter-date{
+    width: 95%;
+}
+
+.enter-date>form>input{
+    background: whitesmoke 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: none;
+    border-radius: 1.5em;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0.72px;
+    color: gray;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
 @media only screen and (max-device-width:420px){
 
    h3{

@@ -9,5 +9,6 @@ Routing::get('index','DefaultController');
 Routing::get('mainPage','DefaultController');
 Routing::post('login','SecurityController');
 Routing::get('register','DefaultController');
+Routing::get('history','DefaultController');
 Routing::post('addWorkoutRoutine','WorkoutController');
 Routing::run($path);

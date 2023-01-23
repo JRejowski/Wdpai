@@ -18,4 +18,8 @@ class DefaultController extends AppController{
     {
         $this->render('main-page');
     }
+    public function history()
+    {
+        $this->render('history');
+    }
 }
