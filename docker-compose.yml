@@ -11,7 +11,6 @@ services:
       - .:/app/
     links:
       - php
-      - db
 
   php:
     build:
@@ -19,14 +18,18 @@ services:
       dockerfile: docker/php/Dockerfile
     volumes:
       - .:/app/
-  db:
+  postgres:
     image: postgres:latest
     restart: always
+    container_name: postgres
+    build:
+      context: .
+      dockerfile: docker/postgres/Dockerfile
     environment:
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     ports:
-      - 5432:5432
+      - 5433:5432
     volumes:
-      - ./docker/postgres/:/docker-entrypoint-initdb.d/
+      - .:/app/

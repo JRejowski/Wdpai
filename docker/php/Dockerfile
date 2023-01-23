@@ -1,4 +1,4 @@
-FROM php:7.4.3-fpm-alpine3.11
+FROM php:8.0-fpm-alpine
 
 ENV RUN_DEPS \
     zlib \
@@ -25,11 +25,11 @@ ENV PHP_EXTENSIONS \
 RUN apk add --no-cache --virtual .build-deps $BUILD_DEPS \
     && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-install -j "$(nproc)" $PHP_EXTENSIONS \
-    && apk del .build-deps \
+    && apk del .build-deps
 
 RUN apk add --no-cache --virtual .run-deps $RUN_DEPS
 
-# Copy the application code
+
 COPY . /app
 
 VOLUME ["/app"]
