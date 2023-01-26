@@ -2,6 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Workout.php';
+require_once __DIR__.'/../repository/WorkoutRepository.php';
 class WorkoutController extends AppController
 {
 
@@ -9,6 +10,14 @@ class WorkoutController extends AppController
     const SUPPORTED_TYPES = ['image/png','image/jpeg'];
     const UPLOAD_DIRECTORY = '/../public/uploads/';
     private $messages = [];
+    private $workoutRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->workoutRepository = new WorkoutRepository();
+    }
+
     public function addWorkoutRoutine()
     {
         if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
@@ -19,6 +28,7 @@ class WorkoutController extends AppController
 
 
             $workout = new Workout($_POST['title'],$_FILES['file']['name']);
+            $this->workoutRepository->addWorkout($workout);
 
             return $this->render('main-page',['messages' => $this->messages, 'workout' => $workout]);
         }
