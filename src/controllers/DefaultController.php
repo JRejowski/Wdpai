@@ -14,10 +14,6 @@ class DefaultController extends AppController{
         $this->render('register');
     }
 
-    public function mainPage()
-    {
-        $this->render('main-page');
-    }
     public function history()
     {
         $this->render('history');

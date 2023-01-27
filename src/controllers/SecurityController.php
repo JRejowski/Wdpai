@@ -30,7 +30,7 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
-        return $this->render('main-page');
+        return $this->render('workouts');
 
     }
 

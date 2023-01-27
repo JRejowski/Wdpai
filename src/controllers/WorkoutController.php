@@ -9,13 +9,20 @@ class WorkoutController extends AppController
     const MAX_FILE_SIZE = 1024*1024;
     const SUPPORTED_TYPES = ['image/png','image/jpeg'];
     const UPLOAD_DIRECTORY = '/../public/uploads/';
-    private $messages = [];
+    private $message = [];
     private $workoutRepository;
 
     public function __construct()
     {
         parent::__construct();
         $this->workoutRepository = new WorkoutRepository();
+    }
+
+
+    public function workouts()
+    {
+        $workouts = $this->workoutRepository->getWorkouts();
+        $this->render('workouts', ['workouts' => $workouts]);
     }
 
     public function addWorkoutRoutine()
@@ -30,21 +37,21 @@ class WorkoutController extends AppController
             $workout = new Workout($_POST['title'],$_FILES['file']['name']);
             $this->workoutRepository->addWorkout($workout);
 
-            return $this->render('main-page',['messages' => $this->messages, 'workout' => $workout]);
+            return $this->render('workouts',['messages' => $this->message, 'workouts' => $this->workoutRepository->getWorkouts()]);
         }
 
-        $this->render('add-workout-routine',['messages' => $this->messages]);
+        $this->render('add-workout-routine',['messages' => $this->message]);
     }
 
     private function validate(array $file): bool
     {
         if($file['size']>self::MAX_FILE_SIZE){
-            $this->messages[] = 'File is too large for destination file system!';
+            $this->message[] = 'File is too large for destination file system!';
             return false;
         }
 
         if(!isset($file['type']) || !in_array($file['type'],self::SUPPORTED_TYPES)){
-            $this->messages[] = 'File type is not supported!';
+            $this->message[] = 'File type is not supported!';
             return false;
 
         }

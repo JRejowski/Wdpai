@@ -41,4 +41,26 @@ class WorkoutRepository extends Repository
         ]);
     }
 
+    public function getWorkouts(): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM workout_plan
+        ');
+        $stmt->execute();
+        $workouts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($workouts as $workout){
+            $result[]= new Workout(
+                $workout['title'],
+                $workout['image']
+            );
+        }
+
+        return $result;
+    }
+
+
+
 }

@@ -3,7 +3,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/workouts.css">
     <script src="https://kit.fontawesome.com/1f8a42c6c3.js" crossorigin="anonymous"></script>
-    <title>MAIN PAGE</title>
+    <title>Main page</title>
 </head>
 <body>
     <div class="base-container">
@@ -41,26 +41,12 @@
                 </div>
             </header>
             <section class="workouts">
+                <?php foreach ($workouts as $workout): ?>
                 <div id="workout 1">
-                    <img src="public/img/uploads/back.jpg">
-                    <h4>Back workout</h4>
+                    <img src="public/uploads/<?= $workout->getImage() ?>">
+                    <h4><?= $workout->getTitle(); ?></h4>
                 </div>
-                <div id="workout 2">
-                    <img src="public/img/uploads/chest.jpg">
-                    <h4>Chest workout</h4>
-                </div>
-                <div id="workout 3">
-                    <img src="public/img/uploads/arm.jpg">
-                    <h4>Arms workout</h4>
-                </div>
-                <div id="workout 4">
-                    <img src="public/img/uploads/legs.jpg">
-                    <h4>Legs workout</h4>
-                </div>
-                <div id="workout 5">
-                    <img src="public/img/uploads/fight.jpg">
-                    <h4>Fighter workout</h4>
-                </div>
+                <?php endforeach; ?>
             </section>
         </main>
     </div>

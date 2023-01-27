@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <title>REGISTER PAGE</title>
+    <title>Register page</title>
 </head>
 <body>
     <div class="container">
