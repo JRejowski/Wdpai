@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <title>Register page</title>
 </head>
 <body>
@@ -12,9 +13,18 @@
         </div>
         <div class="login-container">
             <form class="login">
+                <div class="messages">
+                    <?php if(isset($messages))
+                    {
+                        foreach ($messages as $message){
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
                 <input name="email" type="text" placeholder="Email@email.com">
                 <input name="password" type="password" placeholder="Password">
-                <input name="repeat password" type="password" placeholder="Repeat Password">
+                <input name="repeatPassword" type="password" placeholder="Repeat Password">
                 <button id="login">REGISTER</button>
                 <button id="non-registered-button">Already registered? Log in!</button>
             </form>

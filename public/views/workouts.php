@@ -3,6 +3,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/workouts.css">
     <script src="https://kit.fontawesome.com/1f8a42c6c3.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./public/js/search.js" defer></script>
     <title>Main page</title>
 </head>
 <body>
@@ -31,9 +32,7 @@
         <main>
             <header>
                 <div class="search-bar">
-                    <form>
                         <input placeholder="search workout routines">
-                    </form>
                 </div>
                 <div class="add-workout-routine">
                     <i class="fa-solid fa-plus"></i>
@@ -51,3 +50,10 @@
         </main>
     </div>
 </body>
+
+<template id="workout-template">
+<div id="">
+    <img src="">
+    <h4>title</h4>
+</div>
+</template>
