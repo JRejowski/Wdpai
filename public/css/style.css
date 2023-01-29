@@ -44,6 +44,7 @@ form.login{
     width: 80%;
     height: 40vh;
 
+
     background: #FFFFFF;
     mix-blend-mode: normal;
     border-radius: 40px;
@@ -62,6 +63,7 @@ form.login{
 }
 #non-registered-button
 {
+    margin-top: 1em;
     background-color: transparent;
     border: none;
     color:blue;
@@ -133,6 +135,7 @@ nav > img{
     width: 60%;
     margin: 2em auto;
 }
+
 
 h3{
     font-family: 'Inter';
@@ -238,7 +241,7 @@ header{
     width: 95%;
 }
 
-.enter-date>form>input{
+.enter-date>input{
     background: whitesmoke 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border: none;

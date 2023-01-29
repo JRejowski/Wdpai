@@ -10,6 +10,10 @@ Routing::get('workouts','WorkoutController');
 Routing::post('login','SecurityController');
 Routing::get('register','DefaultController');
 Routing::get('history','DefaultController');
+Routing::get('settings','DefaultController');
+Routing::get('changePassword','DefaultController');
+Routing::get('workout','DefaultController');
+Routing::get('trackedWorkout','DefaultController');
 Routing::post('addWorkoutRoutine','WorkoutController');
 Routing::post('search','WorkoutController');
 

@@ -9,13 +9,17 @@
     <div class="base-container">
         <nav>
 
-                <img src="public/img/logo.svg">
-                <h3>FitFreak</h3>
-            
+            <img src="public/img/logo.svg">
+            <h3>FitFreak</h3>
+
             <ul>
                 <li>
+                    <i class="fa-sharp fa-solid fa-house"></i>
+                    <a href="/workouts" class="button">home page</a>
+                </li>
+                <li>
                     <i class="fa-regular fa-calendar"></i>
-                    <a href="#" class="button">history</a>
+                    <a href="/history" class="button">history</a>
                 </li>
                 <li>
                     <i class="fa-sharp fa-solid fa-gear"></i>
@@ -29,17 +33,7 @@
 
         </nav>
         <main>
-            <header>
-                <div class="search-bar">
-                    <form>
-                        <input placeholder="search workout routines">
-                    </form>
-                </div>
-                <div class="add-workout-routine">
-                    <i class="fa-solid fa-plus"></i>
-                    Add workout routine
-                </div>
-            </header>
+
             <section class="workouts-form">
                 <h5>Create your routine!</h5>
                 <form action="addWorkoutRoutine" method="POST" ENCTYPE="multipart/form-data">

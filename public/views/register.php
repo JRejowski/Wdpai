@@ -26,7 +26,7 @@
                 <input name="password" type="password" placeholder="Password">
                 <input name="repeatPassword" type="password" placeholder="Repeat Password">
                 <button id="login">REGISTER</button>
-                <button id="non-registered-button">Already registered? Log in!</button>
+                <a onclick="href='/login'" id="non-registered-button">Already registered? Log in!</a>
             </form>
         </div>
         

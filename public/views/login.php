@@ -24,7 +24,7 @@
                 <input name="email" type="text" placeholder="Email@email.com">
                 <input name="password" type="password" placeholder="Password">
                 <button id="login" type="submit">LOGIN</button>
-                <button id="non-registered-button">Not registered? Register now!</button>
+                <a onclick="href='/register'" id="non-registered-button">Not registered? Register now!</a>
             </form>
         </div>
         
