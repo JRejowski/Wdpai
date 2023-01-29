@@ -34,7 +34,14 @@ FitFreak is a web app that lets the user create workout routines and track their
 
 ![image](https://user-images.githubusercontent.com/92270737/213945870-99c0137f-c125-4e2d-8bc6-48da0cca1132.png)
 
-![image](https://user-images.githubusercontent.com/92270737/213945894-c95fc4bb-c464-47be-87c6-86d40b50672b.png)
+![image](https://user-images.githubusercontent.com/92270737/215359410-33f5e368-f19d-48b2-9b20-a6d5c6f034bd.png)
+
+![image](https://user-images.githubusercontent.com/92270737/215359435-4403b7eb-bc96-4c9e-ab92-90fe36b9dd3a.png)
+
+![image](https://user-images.githubusercontent.com/92270737/215359450-ec90aba8-7fd3-40b7-bb65-d79fd6b4d0bf.png)
+
+![image](https://user-images.githubusercontent.com/92270737/215360574-8bf7f3dd-9c20-4a5c-9945-b3098bb38eb5.png)
+
 
 ## Project status
 
