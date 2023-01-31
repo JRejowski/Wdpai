@@ -2,6 +2,7 @@
 
 require_once  'Repository.php';
 require_once  __DIR__.'/../models/Workout.php';
+require_once  __DIR__.'/../models/WorkoutContent.php';
 
 class WorkoutRepository extends Repository
 {
@@ -15,7 +16,7 @@ class WorkoutRepository extends Repository
 
         $workout = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($workout == false) {
+        if (!$workout) {
             return null;
         }
 
@@ -32,7 +33,7 @@ class WorkoutRepository extends Repository
         VALUES (?,?,?)
         ');
 
-
+        //TODO zamien id użytkownika na podstawie cookie
         $userID =1;
         $stmt->execute([
             $workout->getTitle(),
@@ -58,6 +59,28 @@ class WorkoutRepository extends Repository
             );
         }
 
+        return $result;
+    }
+
+    public function getWorkoutContent(): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare('
+            select title, name from exercises 
+                JOIN details d on exercises.id = d.id_exercises 
+                JOIN workout_content wc on d.id = wc.id_details 
+                JOIN workout_plan wp on wp.id = wc.id_workout_plan
+        ');
+        $stmt->execute();
+        $workouts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($workouts as $workout){
+            $result[]= new WorkoutContent(
+                $workout['title'],
+                $workout['name']
+            );
+        }
         return $result;
     }
 

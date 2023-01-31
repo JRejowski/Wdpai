@@ -273,10 +273,13 @@ header{
    header{
     padding: 1em;
    }
-   .add-workout-routine{
-        border-radius: 35%;
-        font-size: 0;
+   .add-workout-routine>a{
+        border-radius: 1em;
+        font-size: 0.6em;
    }
+    .add-workout-routine>i {
+        font-size: 0;
+    }
    li{
     display: flex;
    }

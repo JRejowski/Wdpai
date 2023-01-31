@@ -8,31 +8,9 @@
 </head>
 <body>
     <div class="base-container">
-        <nav>
-
-                <img src="public/img/logo.svg">
-                <h3>FitFreak</h3>
-
-            <ul>
-                <li>
-                    <i class="fa-sharp fa-solid fa-house"></i>
-                    <a href="/workouts" class="button">home page</a>
-                </li>
-                <li>
-                    <i class="fa-regular fa-calendar"></i>
-                    <a href="/history" class="button">history</a>
-                </li>
-                <li>
-                    <i class="fa-sharp fa-solid fa-gear"></i>
-                    <a href="#" class="button">settings</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <a href="#" class="button">logout</a>
-                </li>
-            </ul>
-
-        </nav>
+        <?php
+        include ('nav.php')
+        ?>
         <main>
             <header>
                 <div class="search-bar">
@@ -40,16 +18,17 @@
                 </div>
                 <div class="add-workout-routine">
                     <i class="fa-solid fa-plus"></i>
-                    <a href="/addWorkoutRoutine">Add workout routine</a>
+                    <a href="/addWorkoutRoutine">add workout</a>
                 </div>
             </header>
             <section class="workouts">
-                <?php foreach ($workouts as $workout): ?>
+                <?php if(isset($workouts)){
+                foreach ($workouts as $workout): ?>
                 <div id="workout 1">
-                    <img src="public/uploads/<?= $workout->getImage() ?>">
+                    <img onclick="location.href='/workout'" src="public/uploads/<?= $workout->getImage() ?>">
                     <h4><?= $workout->getTitle(); ?></h4>
                 </div>
-                <?php endforeach; ?>
+                <?php endforeach; }?>
             </section>
         </main>
     </div>

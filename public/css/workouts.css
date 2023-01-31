@@ -64,12 +64,14 @@ button{
 
 
 @media only screen and (max-device-width:420px){
-    section{
+    section.workouts{
         display: grid;
         grid-template-columns: repeat(2,1fr);
         grid-gap: 1em;
         padding: 1em;
         overflow: auto;
     }
+
+
 }
 

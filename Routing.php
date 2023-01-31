@@ -3,6 +3,8 @@
 require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/WorkoutController.php';
+require_once 'src/controllers/WorkoutContentController.php';
+require_once 'src/controllers/HistoryController.php';
 
 class Routing{
     public static $routes;

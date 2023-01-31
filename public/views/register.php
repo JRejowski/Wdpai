@@ -4,6 +4,7 @@
     <script type="text/javascript" src="./public/js/script.js" defer></script>
     <title>Register page</title>
 </head>
+
 <body>
     <div class="container">
         <div class="logo">
@@ -12,7 +13,7 @@
             <h2>Become a beast!</h2>
         </div>
         <div class="login-container">
-            <form class="login">
+            <form class="login" action="register" method="POST">
                 <div class="messages">
                     <?php if(isset($messages))
                     {
@@ -25,7 +26,7 @@
                 <input name="email" type="text" placeholder="Email@email.com">
                 <input name="password" type="password" placeholder="Password">
                 <input name="repeatPassword" type="password" placeholder="Repeat Password">
-                <button id="login">REGISTER</button>
+                <button id="login" type="submit">REGISTER</button>
                 <a onclick="href='/login'" id="non-registered-button">Already registered? Log in!</a>
             </form>
         </div>

@@ -7,34 +7,12 @@
 </head>
 <body>
 <div class="base-container">
-    <nav>
-
-        <img src="public/img/logo.svg">
-        <h3>FitFreak</h3>
-
-        <ul>
-            <li>
-                <i class="fa-sharp fa-solid fa-house"></i>
-                <a href="/workouts" class="button">home page</a>
-            </li>
-            <li>
-                <i class="fa-regular fa-calendar"></i>
-                <a href="/history" class="button">history</a>
-            </li>
-            <li>
-                <i class="fa-sharp fa-solid fa-gear"></i>
-                <a href="#" class="button">settings</a>
-            </li>
-            <li>
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <a href="#" class="button">logout</a>
-            </li>
-        </ul>
-
-    </nav>
+    <?php
+    include ('nav.php')
+    ?>
     <main>
         <h5>Settings</h5>
-        <button>Change password</button>
+        <button onclick="location.href='/changePassword'">Change password</button>
     </main>
 </div>
 </body>

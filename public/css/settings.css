@@ -49,3 +49,13 @@ form>input{
     text-align: center;
     letter-spacing: 0.72px;
 }
+
+@media only screen and (max-device-width:420px){
+    #changePassword{
+        width: 50%;
+    }
+    form>input
+    {
+        width: 60%;
+    }
+}
