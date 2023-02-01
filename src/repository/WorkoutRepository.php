@@ -22,19 +22,18 @@ class WorkoutRepository extends Repository
 
         return new Workout(
             $workout['title'],
-            $workout['image']
+            $workout['image'],
+            $workout['id']
         );
     }
 
-    public function addWorkout(Workout $workout): void
+    public function addWorkout(Workout $workout, $userID): void
     {
         $stmt = $this->database->connect()->prepare('
         INSERT INTO workout_plan (title, id_user, image)
         VALUES (?,?,?)
         ');
 
-        //TODO zamien id użytkownika na podstawie cookie
-        $userID =1;
         $stmt->execute([
             $workout->getTitle(),
             $userID,
@@ -55,34 +54,39 @@ class WorkoutRepository extends Repository
         foreach ($workouts as $workout){
             $result[]= new Workout(
                 $workout['title'],
-                $workout['image']
+                $workout['image'],
+                $workout['id']
             );
         }
 
         return $result;
     }
 
-    public function getWorkoutContent(): array
+    public function getWorkoutContent($givenId): array
     {
         $result = [];
 
         $stmt = $this->database->connect()->prepare('
-            select title, name from exercises 
+            select title, name,wp.id from exercises 
                 JOIN details d on exercises.id = d.id_exercises 
                 JOIN workout_content wc on d.id = wc.id_details 
-                JOIN workout_plan wp on wp.id = wc.id_workout_plan
+                JOIN workout_plan wp on wp.id = wc.id_workout_plan where :id = wp.id
         ');
+        $stmt->bindParam(':id',$givenId, PDO::PARAM_INT);
         $stmt->execute();
         $workouts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($workouts as $workout){
             $result[]= new WorkoutContent(
                 $workout['title'],
-                $workout['name']
+                $workout['name'],
+                $workout['id']
             );
         }
         return $result;
     }
+
+
 
     public function getWorkoutByTitle(string $searchString)
     {

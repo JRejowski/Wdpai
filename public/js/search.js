@@ -40,5 +40,7 @@ function createWorkout(workout) {
     const title = clone.querySelector("h4");
     title.innerHTML = workout.title;
 
+    div.onclick=() => {window.location=`workout/${workout.id}`;};
+
     workoutContainer.appendChild(clone);
 }

@@ -23,9 +23,9 @@
                     }
                     ?>
                 </div>
-                <input name="email" type="text" placeholder="Email@email.com">
-                <input name="password" type="password" placeholder="Password">
-                <input name="repeatPassword" type="password" placeholder="Repeat Password">
+                <input name="email" type="text" placeholder="Email@email.com" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <input name="repeatPassword" type="password" placeholder="Repeat Password" required>
                 <button id="login" type="submit">REGISTER</button>
                 <a onclick="href='/login'" id="non-registered-button">Already registered? Log in!</a>
             </form>

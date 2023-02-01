@@ -17,6 +17,10 @@ class SecurityController extends AppController
     }
     public function login()
     {
+        if(isset($_COOKIE['user'])) {
+            $this->render('workouts', ['workouts' => $this->workoutRepository->getWorkouts()]);
+        }
+
         if (!$this->isPost()) {
             return $this->render('login');
         }
@@ -38,6 +42,11 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
+        $user_cookie = 'user';
+        $cookie_value = $email;
+        setcookie($user_cookie, $cookie_value, time() + (60 * 30), "/");
+
+
         return $this->render('workouts', ['workouts' => $this->workoutRepository->getWorkouts()]);
 
     }
@@ -46,6 +55,10 @@ class SecurityController extends AppController
     {
         if (!$this->isPost()) {
             return $this->render('register');
+        }
+
+        if(isset($_COOKIE['user'])) {
+            $this->render('workouts', ['workouts' => $this->workoutRepository->getWorkouts()]);
         }
 
         $email = $_POST['email'];
@@ -73,7 +86,7 @@ class SecurityController extends AppController
         $newPassword = sha1($_POST["NewPassword"]);
         $repeatPassword = sha1($_POST["repeatNewPassword"]);
 
-        $user = $this->userRepository->getUser('qwe@qwe.pl');
+        $user = $this->userRepository->getUser('major@bombas.pl');
 
         if($user->getPassword() !== $oldPassword) {
             return $this->render('changePassword', ['messages' => ['Wrong old password!']]);
@@ -88,8 +101,8 @@ class SecurityController extends AppController
     }
 
     public function logout(){
-        //TODO czyszczenie cookies
-        $this->render('login');
+        setcookie('user', $_COOKIE['user'], time() - 10, "/");
+        $this->render('login', ['messages' => ['Logout successful']]);
     }
 
 

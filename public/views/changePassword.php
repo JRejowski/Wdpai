@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/settings.css">
-    <script src="https://kit.fontawesome.com/1f8a42c6c3.js" crossorigin="anonymous"></script>
+    <script src="public/js/update_password.js" defer></script>
     <title>Change password</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
     ?>
     <main>
         <h5>Change Password</h5>
-        <form>
+        <form class="change-password" action="changePassword" method="POST">
             <div class="messages">
                 <?php if(isset($messages)) {
                     foreach ($messages as $message){

@@ -3,6 +3,7 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Workout.php';
 require_once __DIR__.'/../repository/WorkoutRepository.php';
+require_once __DIR__.'/../repository/UserRepository.php';
 class WorkoutController extends AppController
 {
 
@@ -11,11 +12,13 @@ class WorkoutController extends AppController
     const UPLOAD_DIRECTORY = '/../public/uploads/';
     private $message = [];
     private $workoutRepository;
+    private $userRepository;
 
     public function __construct()
     {
         parent::__construct();
         $this->workoutRepository = new WorkoutRepository();
+        $this->userRepository = new UserRepository();
     }
 
 
@@ -25,6 +28,25 @@ class WorkoutController extends AppController
         $this->render('workouts', ['workouts' => $workouts]);
     }
 
+    public function workout(string $id)
+    {
+        $id = intval($id);
+        $workout = $this->workoutRepository->getWorkoutContent($id);
+        if($workout){
+            $this->render('workout',['workout'=>$workout]);
+        }
+    }
+    public function trackedWorkout(string $id)
+    {
+        $id = intval($id);
+        $workout = $this->workoutRepository->getWorkoutContent($id);
+        if($workout){
+            $this->render('trackedWorkout',['workout'=>$workout]);
+        }
+    }
+
+
+
     public function addWorkoutRoutine()
     {
         if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
@@ -33,9 +55,9 @@ class WorkoutController extends AppController
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
 
-
+            $user = $this->userRepository->getUser($_COOKIE['user']);
             $workout = new Workout($_POST['title'],$_FILES['file']['name']);
-            $this->workoutRepository->addWorkout($workout);
+            $this->workoutRepository->addWorkout($workout,$user->getId());
 
             return $this->render('workouts',['messages' => $this->message, 'workouts' => $this->workoutRepository->getWorkouts()]);
         }

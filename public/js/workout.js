@@ -1,0 +1,1 @@
+function handle(title) {location.href=`/workout?title=${title}`; }

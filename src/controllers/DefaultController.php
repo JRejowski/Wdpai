@@ -19,4 +19,9 @@ class DefaultController extends AppController{
         $this->render('trackedWorkout');
     }
 
+    public function addExercisesToWorkout()
+    {
+        $this->render('addExercisesToWorkout');
+    }
+
 }

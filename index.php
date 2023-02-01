@@ -7,14 +7,17 @@ $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get('index','DefaultController');
 Routing::get('settings','DefaultController');
-Routing::get('trackedWorkout','DefaultController');
+
+Routing::get('addExercisesToWorkout','ExercisesController');
 
 Routing::post('history','HistoryController');
 Routing::post('getExercises','HistoryController');
 
-Routing::get('workout','WorkoutContentController');
 
+Routing::post('addTrackedWorkout','WorkoutController');
+Routing::get('workout','WorkoutController');
 Routing::get('workouts','WorkoutController');
+Routing::get('trackedWorkout','WorkoutController');;
 Routing::post('addWorkoutRoutine','WorkoutController');
 Routing::post('search','WorkoutController');
 

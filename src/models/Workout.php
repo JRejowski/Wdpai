@@ -4,10 +4,23 @@ class Workout
 {
     private $title;
     private $image;
-    public function __construct($title, $image)
+    private $id;
+    public function __construct($title, $image, $id)
     {
         $this->title = $title;
         $this->image = $image;
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 
     public function getTitle(): string
