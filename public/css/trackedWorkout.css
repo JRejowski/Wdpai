@@ -1,0 +1,34 @@
+table,th, td{
+    margin-left: 1em;
+    border-collapse: collapse;
+}
+
+table{
+    width:90%;
+    margin-bottom: 1em;
+}
+
+th{
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    height: 2em;
+}
+
+td{
+    height: 1em;
+    text-align: center;
+}
+
+td {
+    border: 1px solid #ddd;
+}
+
+#wr{
+    height: 0.5em;
+    width: 2em;
+}
+
+
+
+
+
