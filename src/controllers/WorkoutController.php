@@ -2,8 +2,10 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Workout.php';
+require_once __DIR__.'/../models/Exercise.php';
 require_once __DIR__.'/../repository/WorkoutRepository.php';
 require_once __DIR__.'/../repository/UserRepository.php';
+require_once __DIR__.'/../repository/ExerciseRepository.php';
 class WorkoutController extends AppController
 {
 
@@ -13,12 +15,14 @@ class WorkoutController extends AppController
     private $message = [];
     private $workoutRepository;
     private $userRepository;
+    private $exerciseRepository;
 
     public function __construct()
     {
         parent::__construct();
         $this->workoutRepository = new WorkoutRepository();
         $this->userRepository = new UserRepository();
+        $this->exerciseRepository = new ExerciseRepository();
     }
 
 
@@ -45,6 +49,22 @@ class WorkoutController extends AppController
         }
     }
 
+    public function addExerciseToWorkout()
+    {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+        if ($contentType === "application/json") {
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+
+            header('Content-type: application/json');
+            http_response_code(200);
+            $exercise = $this->exerciseRepository->getExerciseByName($decoded['exercise_name']);
+            $this->exerciseRepository->addExerciseToWorkout($decoded['workout'],$exercise->getId());
+
+        }
+
+    }
 
 
     public function addWorkoutRoutine()

@@ -20,6 +20,7 @@ Routing::get('workouts','WorkoutController');
 Routing::get('trackedWorkout','WorkoutController');;
 Routing::post('addWorkoutRoutine','WorkoutController');
 Routing::post('search','WorkoutController');
+Routing::post('addExerciseToWorkout','WorkoutController');
 
 Routing::post('login','SecurityController');
 Routing::post('logout', 'SecurityController');

@@ -35,7 +35,7 @@
     </nav>
     <main>
         <h5><?php print_r($workout[0]->getTitle()) ?></h5>
-        <button onclick="location.href='../addExercisesToWorkout'">Add exercises</button>
+        <button onclick="location.href='../addExercisesToWorkout/<?= $workout[0]->getId()?>'">Add exercises</button>
         <section id="exercises">
             <?php foreach ($workout as $w): ?>
             <p><?= $w->getName()?></p>

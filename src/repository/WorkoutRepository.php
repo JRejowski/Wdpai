@@ -67,10 +67,9 @@ class WorkoutRepository extends Repository
         $result = [];
 
         $stmt = $this->database->connect()->prepare('
-            select title, name,wp.id from exercises 
-                JOIN details d on exercises.id = d.id_exercises 
-                JOIN workout_content wc on d.id = wc.id_details 
-                JOIN workout_plan wp on wp.id = wc.id_workout_plan where :id = wp.id
+        select title,name,wp.id from exercises 
+            JOIN  workout_content wc on exercises.id = wc.id_exercise 
+            join workout_plan wp on wc.id_workout_plan = wp.id where :id = wp.id
         ');
         $stmt->bindParam(':id',$givenId, PDO::PARAM_INT);
         $stmt->execute();

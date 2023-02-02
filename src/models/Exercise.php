@@ -4,11 +4,23 @@ class Exercise
 {
     private $name;
     private $bodyPart;
+    private $id;
 
-    public function __construct($name, $bodyPart)
+    public function __construct($name, $bodyPart,$id)
     {
         $this->name = $name;
         $this->bodyPart = $bodyPart;
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 
 
